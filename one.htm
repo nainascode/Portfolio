@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naina Dugar Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 1);
+            padding: 1.5rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #780606;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #B8A7D9;
+            color: #000;
+        }
+
+        /* Marquee Section */
+        .marquee-section {
+            height: 100vh;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .marquee-text {
+            font-size: 11.5rem;
+            font-weight: bold;
+            /* color: linear-gradient(45deg, #780606, #ff0000); */
+            /* background: linear-gradient(45deg, #780606, #ff0000); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color:linear-gradient(45deg, #780606, #ff0000); */
+            white-space: nowrap;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* About Section */
+        #header {
+            background: linear-gradient(45deg, #000, #780606, #B8A7D9);
+            padding: 100px 50px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 400px;
+            border-radius: 50%/60%;
+            object-fit: cover;
+            border: 8px solid #780606;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #780606);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Experience Section */
+        #experience {
+            background: linear-gradient(180deg, #000, #780606);
+            padding: 100px 20px;
+        }
+
+        #experience h2, #skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        #education h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            -webkit-text-fill-color: black;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            width: 100%;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(120, 6, 6, 0.3);
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            border-color: #780606;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #780606;
+        }
+
+        /* Education Section */
+        #education {
+            background: linear-gradient(0deg, #000, #780606);
+            padding: 100px 20px;
+        }
+        .education-cards {
+            display: flex;
+            gap: 3rem;
+            max-width: 1400px;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .education-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(120, 6, 6, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            border-color: #780606;
+        }
+
+        .education-card img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 1rem 0;
+            border: 3px solid #780606;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: linear-gradient(180deg, #000, #780606);
+            padding: 100px 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(120, 6, 6, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            border-color: #780606;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #780606;
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(-45deg, #000, #780606, #B8A7D9);
+        }
+
+        .contact-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            border: 2px solid rgba(120, 6, 6, 0.3);
+        }
+
+        .contact-link {
+            display: inline-block;
+            margin: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(184, 167, 217, 0.3);
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(120, 6, 6, 0.3);
+        }
+
+        .contact-link:hover {
+            background: rgba(120, 6, 6, 0.8);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <!-- <a href="#marquee">Me</a> -->
+        <a href="#header">Me</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="marquee" class="marquee-section">
+        <marquee behavior="alternate" direction="left" scrollamount="15" class="marquee-text">
+            &nbsp;&nbsp;Naina Dugar&nbsp;&nbsp;Naina Dugar&nbsp;&nbsp;
+        </marquee>
+    </section>
+
+    <section id="header">
+        <div class="about-container">
+            <img src="/api/placeholder/300/400" alt="Naina Dugar" class="profile-image">
+            <div class="about-content">
+                <h1>Hi, I am Naina Dugar!</h1>
+                <p>I am a dynamic and creative individual with a passion for problem-solving and a proactive approach to challenges. 
+                Comfortable and confident in front of the camera, I thrive in roles that allow me to express my enthusiasm and connect with others. 
+                My leadership journey as a school prefect and Interact Club coordinator has refined my ability to lead, collaborate, and foster teamwork, 
+                equipping me with the skills to excel in both independent and team-driven environments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Community 55</h3>
+                <p>Intern (November 2024 - Present)</p>
+                <p>Contributed to community development initiatives.</p>
+                <div class="image-grid">
+                    <img src="public/images/Community55-3.jpg" alt="Community55-1">
+                    <img src="public/images/Community55-1.jpg" alt="Community55-2">
+                    <img src="public/images/Community55-4.jpg" alt="Community55-3">
+                    <img src="public/images/Community55-2.jpg" alt="Community55-4">
+                </div>
+            </div>
+            <div class="experience-card">
+                <h3>Interact Club</h3>
+                <p>Co-ordinator (April 2022 - March 2023)</p>
+                <p>Did community work and organized donation drive for orphanages.</p>
+                <div class="image-grid">
+                    <img src="public/images/school-4.jpg" alt="Interact-1">
+                    <img src="public/images/school-3.jpg" alt="Interact-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" >
+        <h2>Education</h2>
+        <div class="education-cards">
+            <div class="education-card">
+                <h3>PW Institute of Innovation</h3>
+                <p>Computer Science (2024 - 2028)</p>
+                <img src="/api/placeholder/400/250" alt="PW Institute">
+                <img src="/api/placeholder/400/250" alt="PW Institute Campus">
+            </div>
+            <div class="education-card">
+                <h3>Royal Global School</h3>
+                <p>Science (2021 - 2023)</p>
+                <img src="public/images/school-2.jpg" alt="Royal Global School">
+                <img src="public/images/school-1.jpg" alt="School Campus">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Top Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Communication</h3>
+                <img src="/api/placeholder/200/200" alt="Communication Skill">
+            </div>
+            <div class="skill-card">
+                <h3>Public Speaking</h3>
+                <img src="/api/placeholder/200/200" alt="Public Speaking Skill">
+            </div>
+            <div class="skill-card">
+                <h3>Content Creation</h3>
+                <img src="/api/placeholder/200/200" alt="Content Creation Skill">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Let's Connect!</h2>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nainadugar.official@gmail.com" target="_blank" class="contact-link">Email Me</a>
+            <a href="https://www.linkedin.com/in/nainadugar" target="_blank" class="contact-link">LinkedIn Profile</a>
+        </div>
+    </section>
+</body>
+</html>
